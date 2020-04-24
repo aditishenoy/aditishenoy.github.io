@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aditi Shenoy</title>
+    <link>https://aditishenoy.github.io/</link>
+    <description>Recent content on Aditi Shenoy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 20:51:27 +0200</lastBuildDate>
+    
+	<atom:link href="https://aditishenoy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>“Wi-Fi: No Hardware Installed“ - What to do?</title>
+      <link>https://aditishenoy.github.io/posts/blog2_wifiprob/</link>
+      <pubDate>Fri, 24 Apr 2020 21:01:26 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/blog2_wifiprob/</guid>
+      <description>Over the past couple of weeks I had been getting an error with the Wi-fi on my Macbook Air (2017). There was an &amp;lsquo;x&amp;rsquo; in the Wi-fi symbol and on clicking the icon, the message read &amp;ldquo;Wi-Fi: No Hardware Installed&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Research</title>
+      <link>https://aditishenoy.github.io/research/</link>
+      <pubDate>Fri, 24 Apr 2020 20:51:27 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/research/</guid>
+      <description>My research interests include structural protein bioinformatics and sub-cellular localization. I am currently working on using deep learning techniques to predict the sub-cellular localization of proteins.</description>
+    </item>
+    
+    <item>
+      <title>Could these global health problems soon become your problems?</title>
+      <link>https://aditishenoy.github.io/posts/blog1_healthinfo/</link>
+      <pubDate>Fri, 24 Apr 2020 20:51:14 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/blog1_healthinfo/</guid>
+      <description>Across the world, technologies are being increasingly used to maximize productivity in the clinical space. Being a part of this change and learning to adapt to it would be of utmost importance in the coming years with the pressing challenges of the current healthcare systems in the world.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://aditishenoy.github.io/about/</link>
+      <pubDate>Fri, 24 Apr 2020 20:50:57 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/about/</guid>
+      <description>I am a PhD researcher in Protein Bioinformatics and Deep Learning at Science for Life Laboratory in Stockholm. I am currently working on using deep learning techniques to study sub-cellular localization in proteins i.</description>
+    </item>
+    
+  </channel>
+</rss>

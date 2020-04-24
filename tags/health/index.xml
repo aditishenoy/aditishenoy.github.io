@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Health on Aditi Shenoy</title>
+    <link>https://aditishenoy.github.io/tags/health/</link>
+    <description>Recent content in Health on Aditi Shenoy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 20:51:14 +0200</lastBuildDate>
+    
+	<atom:link href="https://aditishenoy.github.io/tags/health/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Could these global health problems soon become your problems?</title>
+      <link>https://aditishenoy.github.io/posts/blog1_healthinfo/</link>
+      <pubDate>Fri, 24 Apr 2020 20:51:14 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/blog1_healthinfo/</guid>
+      <description>Across the world, technologies are being increasingly used to maximize productivity in the clinical space. Being a part of this change and learning to adapt to it would be of utmost importance in the coming years with the pressing challenges of the current healthcare systems in the world.</description>
+    </item>
+    
+  </channel>
+</rss>

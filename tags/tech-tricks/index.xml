@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tech Tricks on Aditi Shenoy</title>
+    <link>https://aditishenoy.github.io/tags/tech-tricks/</link>
+    <description>Recent content in Tech Tricks on Aditi Shenoy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Copyright notice</copyright>
+    <lastBuildDate>Fri, 24 Apr 2020 21:01:26 +0200</lastBuildDate>
+    
+	<atom:link href="https://aditishenoy.github.io/tags/tech-tricks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>“Wi-Fi: No Hardware Installed“ - What to do?</title>
+      <link>https://aditishenoy.github.io/posts/blog2_wifiprob/</link>
+      <pubDate>Fri, 24 Apr 2020 21:01:26 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/blog2_wifiprob/</guid>
+      <description>Over the past couple of weeks I had been getting an error with the Wi-fi on my Macbook Air (2017). There was an &amp;lsquo;x&amp;rsquo; in the Wi-fi symbol and on clicking the icon, the message read &amp;ldquo;Wi-Fi: No Hardware Installed&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
