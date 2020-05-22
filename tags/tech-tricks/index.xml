@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Fri, 24 Apr 2020 21:01:26 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 21 May 2020 16:08:13 +0200</lastBuildDate>
     
 	<atom:link href="https://aditishenoy.github.io/tags/tech-tricks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Installing Nvidia Driver and Cuda in a Singularity Container </title>
+      <link>https://aditishenoy.github.io/posts/blog3_nvidiacudasing/</link>
+      <pubDate>Thu, 21 May 2020 16:08:13 +0200</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/blog3_nvidiacudasing/</guid>
+      <description>Installing Nvidia Drivers and Cuda on a Linux machine can be a tricky affair. Though it is possible to install both the nvidia-driver and the nvidia-cuda-toolkit using a package manager, it could result in incompatibile versions and could potentially break the graphics or operating system.</description>
+    </item>
     
     <item>
       <title>“Wi-Fi: No Hardware Installed“ - What to do?</title>
