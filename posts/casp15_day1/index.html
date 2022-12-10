@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CASP 15 Day-1 Review - Aditi Shenoy</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="CASP 15 Day-1 Review" />
+<meta property="og:description" content="Expanding criteria for review  John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aditishenoy.github.io/posts/casp15_day1/" />
+<meta property="article:published_time" content="2022-12-10T22:44:24+03:00" />
+<meta property="article:modified_time" content="2022-12-10T22:44:24+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CASP 15 Day-1 Review"/>
+<meta name="twitter:description" content="Expanding criteria for review  John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://aditishenoy.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://aditishenoy.github.io/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://aditishenoy.github.io/css/custom.css" />
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://aditishenoy.github.io/js/main.js"></script>
+	<script src="https://aditishenoy.github.io/js/abc.js"></script>
+	<script src="https://aditishenoy.github.io/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://aditishenoy.github.io/">
+	<h1 class="site-title"><a href="https://aditishenoy.github.io/">Aditi Shenoy</a></h1>
+	<div class="site-description"><h2>PhD Candidate in Protein Bioinformatics and Machine Learning</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/aditishenoy" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/aditi-shenoy-287060bb/" title="LinkedIn"><i data-feather="linkedin"></i></a><a href="https://twitter.com/aditi_shenoy" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/research">Research</a>
+			</li>
+			
+			<li>
+				<a href="/posts">Articles</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">CASP 15 Day-1 Review</h1>
+			<div class="meta">Posted at &mdash; Dec 10, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<ol>
+<li>Expanding criteria for review</li>
+</ol>
+<p>John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers. To keep up with the faced-pased research in the field, criteria like these could be useful to suggest what has been done (e.g. using protein language models for proteins with shallow alignments or graph transformers for protein-ligand complex prediction and where we fall short</p>
+<ol start="2">
+<li>Evaluating targets during CASP15</li>
+</ol>
+<p>Andriy Kryshtafovych described the how domains were defined to evaluate targets during CASP15 (this was done differently from CASP14 where homology was manually examined). First, domain definition programs (like Domain, DomainParser2,SWORD) were used followed by homology search (PSIBLAST, HHsearch). These two steps were iteratively performed with manual inspection to produce Evaluation Units (EVUs). The predictions were run on these definitons and then evalauted using Grishin plots.</p>
+<p>(TIL - Grishin plots are ways to compare how the performance of the individual domains perform as compared to the prediction of the entire complex. This is given by the GDT_TS score of domains (weighted and averaged) on y-axis and GDT_TS score of the entire complex on the x-axis)</p>
+<p>Based on homology searches, these were then divided into 4 categories based on difficulty (Template-based modelling (TBM) easy, TBM-hard, TBM/Free modelling (FM) and FM). The average target difficulty across the CASP is becoming more difficult (low sequence identity % and low coverage in PDB). The quality of models is inversely correlated with the number of effective sequences (i.e. how deep the MSA is)</p>
+<ol start="3">
+<li>CAMEO - Weekly automated evaluation of prediction methods</li>
+</ol>
+<p>CAMEO consists of automated pipeline for selecting targets by first removing homology (99% sequence identity clustering, if 2 proteins not in same cluster then included, additional homology reduction for ligands) and running them on automated servers for protein complex/protein-ligand complexes prediction. The current challenges include prediction of stoichiometry and prediction of full complexes. The current evaluation critera include QS-score and lDDT-PMI<!-- raw HTML omitted -->*<!-- raw HTML omitted -->.</p>
+<ol start="4">
+<li>Disorder evaluation (CAID)</li>
+</ol>
+<p>Data obtained from DisProt (manual annotation). Each method is containerized and all the features produced by CAID team. The time varies for these evaluations among various methods. Mostly, AlphaFold predicts disorder regions well (plDDT &lt; 50) with some exceptions for other categories.</p>
+<p>Question of the hour - How important are the quality of the MSAs for predictions?</p>
+<p><!-- raw HTML omitted -->*<!-- raw HTML omitted --> Did anybody find any resources on this?</p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'aditishenoy';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright notice |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>feather.replace()</script>
+</body>
+</html>
