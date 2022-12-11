@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CASP 15 Day-2 - Aditi Shenoy</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="CASP 15 Day-2" />
+<meta property="og:description" content="Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper) The talk broadly covered 3 categories:
+  Generative modelling (Diffusion models):" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://aditishenoy.github.io/posts/casp15/day2/" />
+<meta property="article:published_time" content="2022-12-11T15:02:11+03:00" />
+<meta property="article:modified_time" content="2022-12-11T15:02:11+03:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CASP 15 Day-2"/>
+<meta name="twitter:description" content="Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper) The talk broadly covered 3 categories:
+  Generative modelling (Diffusion models):"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://aditishenoy.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://aditishenoy.github.io/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://aditishenoy.github.io/css/custom.css" />
+	
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://aditishenoy.github.io/js/main.js"></script>
+	<script src="https://aditishenoy.github.io/js/abc.js"></script>
+	<script src="https://aditishenoy.github.io/js/xyz.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://aditishenoy.github.io/">
+	<h1 class="site-title"><a href="https://aditishenoy.github.io/">Aditi Shenoy</a></h1>
+	<div class="site-description"><h2>PhD Candidate in Protein Bioinformatics and Machine Learning</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/aditishenoy" title="Github"><i data-feather="github"></i></a><a href="https://www.linkedin.com/in/aditiashenoy/" title="LinkedIn"><i data-feather="linkedin"></i></a><a href="https://twitter.com/aditiashenoy" title="Twitter"><i data-feather="twitter"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/posts">Articles</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">CASP 15 Day-2</h1>
+			<div class="meta">Posted at &mdash; Dec 11, 2022</div>
+		</div>
+
+		<div class="markdown">
+			<h3 id="overview-talk-1--mapping-machine-learning-to-protein-structure-problems-john-jumper">Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper)</h3>
+<p>The talk broadly covered 3 categories:</p>
+<ol>
+<li>
+<p><strong>Generative modelling (Diffusion models):</strong><br>
+Evidence for multi-state modelling using sub-sampling or clustering MSAs has been shown by <a href="https://elifesciences.org/articles/75751#s3">Diego del Alamo 2022</a>. With recent success of generative modelling, there is, scope to use diffusion models to predict multiple states in proteins. This is done by adding noise to the input (protein coordinates) which passes through the network and produces a prediction. This incldues forward stochastic differential equations (SDE) (data to noise) and reverse SDE (noise to data).Examples where these have been applied to proteins are (<a href="https://arxiv.org/abs/2205.15019">Anand and Achim 2022</a>, <a href="https://www.biorxiv.org/content/10.1101/2022.12.09.519842v1">Watson 2022</a> and <a href="https://www.biorxiv.org/content/10.1101/2022.12.01.518682v1">Ingraham 2022</a>). The challenge to evaluate multi-state proteins remains.</p>
+</li>
+<li>
+<p><strong>Language models (LM) for proteins:</strong><br>
+There are two types of LM (i) Masked Language modelling (e.g. BERT - used to understand text) or (ii) Autoregressive model (predicts the last word - used for generating text). A LM where tokens in a sequence are masked and the training objective is to predict missing tokens. This requires a reasonable understanding of the world and the language. Masked LM and coupling analysis were described to be highly analogous. Given a part of the sequence, the network should be able to rest of the sequence. This could be done using either the approach as in <a href="https://www.biorxiv.org/content/10.1101/2021.02.12.430858v3">MSA Transformer</a> or co-training as another objective for AlphaFold. Current models are not at par with performance of MSA-based methods (described in more detail below in the section on assessment) and perform badly for proteins having a low Neff score as well. Another downside to LM is that these are very large models (they need to memorize aspects of the protein like protein families, evolution). There is, however, potential for protein LM (PLM) due to their fast speed, ease of use and possibility to capture unusual conservation patterns that can&rsquo;t be obtained from the MSAs.
+An increase in performance of autoregressive language models were observed as the number of parameters were increased (i.e. size of retrieval database was large) as described in the <a href="https://www.deepmind.com/blog/improving-language-models-by-retrieving-from-trillions-of-tokens">Deepmind blog</a>. So eventually embeddings will further grow in size to learn more complex representations of contacts and structure directly from the LM.</p>
+</li>
+<li>
+<p><strong>Scaling hypothesis:</strong><br>
+The LM has three main inputs (i.e. number of parameters, compute time for training, and amount of data seen during training). This hypothesis states that a power law of perplexity can be fit to these 3 inputs. Essentailly, there is only so far an architecture can drive the performance and the real power comes with more data. <a href="https://arxiv.org/abs/2001.08361">Kaplan 2020</a>. Scaling to billions of parameters for sequence generation has been shown in <a href="https://arxiv.org/pdf/2205.05789.pdf">RITA</a> and <a href="https://arxiv.org/pdf/2206.13517.pdf">ProGen2</a>.</p>
+</li>
+</ol>
+<p>The talk ended with problems that could use ML solutions:</p>
+<ul>
+<li>Incorporating spare experimental data (e.g. from chemical cross-linking to identify protein-protein interactions)</li>
+<li>Handling large complexes</li>
+<li>Interpreting cryo-ET data</li>
+<li>Informing interaction screenings with structures which do not interact (negatives)</li>
+<li>Mutational and PTM-associated effects</li>
+</ul>
+<h3 id="assessment-talks">Assessment talks:</h3>
+<ol>
+<li>
+<p><strong>Protein Tertiary structure (Dan Rigden)</strong> -
+Most highly ranked methods are AF2-based. They differ based on use of diverse MSAs, dividing into domains, ranking, manual selection and refinement. No single method stands out (like CASP14). The informal submissions from DeepMind are at par with best performing method in CASP15. Most human predictions are as good as server predictions. PLM are useful for crysal structures and could be useful in cryo-EM fitting. The drop in performance from CASP14 to CASP15 could be due to the face that the targets were smaller in size, there were more alpha helices than beta sheets and the number of effective sequences (Neff score) was very low for difficult targets.</p>
+</li>
+<li>
+<p><strong>Protein assemblies, the CASP perspective (Ezgi Karaca)</strong> -
+Targets were divided 3 categories depending on if templates existed (easy), partially existed (medium) or not existing (hard). A combination of global (i.e. oligomeric lDDT, TM score), local (interface contact scores (~F1), interface patch scores (~Jaccard)). The local and global scores do not always agree e.g for cases with a large monomer in the complex would dominate the TM score of the complex. Examples between a big gap between the naive AlphaFold-Multimer (AFM) and top predictors are where there is wrong level of compaction, internal rotation (180) or incorrect interfaces predicted in dimers. For big complexes, the asymmetric unit modelling not enough to explain assembly geometry. For nanobody cases, different  groups randomly rank at top. No single approach worked well - clustering key terms of abstracts of best performing methods gave the following keywords - non-paired MSA (surprising?), custom MSA, improved sampling and number of templates used. AF-2 ranking performs well to rank models. Tertiary structural quality correlates well to quaternary structure quality. Future perspectives include an approach similar to data-driven docking - pooling models from different approaches (what resources used, how was MSA selected)- clustering based on structural similarity and AFM scores (plddt, pTM, ipTM).</p>
+</li>
+<li>
+<p><strong>Protein assemblies, the CAPRI perspective (Marc Lensink)</strong> -
+The CAPRI assessment is an community consensus assessment performed along with experimentalists. The scores taken into consideration to define 4 categories (incorrect, acceptable, medium, high) use interface-based F<!-- raw HTML omitted -->nat<!-- raw HTML omitted -->, RMS and ligand/receptor RMS (LRMS). Most observations were same as above. Certain targets showed a domain swapping. There was a high relationship between model quality and target difficulty. Nano bodies bind to different locations of same protein and 3 different antibodies had different binding modes.</p>
+</li>
+</ol>
+<h3 id="predictions-talks">Predictions talks:</h3>
+<ol>
+<li>
+<p><strong>UM_TBM /Zheng (Peter Freddolino / Wei Zheng)</strong><br>
+Diverse MSAs (~10) were generated using DeepMSA2. plDDT was used to rank which MSAs to use. Some sort of combinatorials were used for pairing MSA for heteromers (I missed this, does anyone remember?). The chosen MSA was passed through AlphaFold, AttentionPotential and DeepPotential. Geometric constraints were used as constraints. Finally, the predicted constraints were based through DeepFold.</p>
+</li>
+<li>
+<p><strong>Yang server/Yang Multimer (Jianyi Yang)</strong>
+trRosettaX was developed based on Evoformer from AlphaFold.Pairing MSA was turned off for multimers. Proteins were cut at the level of domains (using UniDoc in-house) and the MSAs of the domains were assembled together. The disorder residues were removed for large complexes. Curating MSA helps predicting hard targets; PDB templates not important for tertiary structure prediction; homologous templates important for big protein assembly.</p>
+</li>
+<li>
+<p><strong>PEZYFoldings (Toshiyuki Oda)</strong>
+Conducting diverse MSA generation (exhaustive sequence similarity search PZLAST jackhmmer and hhblits) by clustering at ~90% and then selecting query sequence using ~60-80% thresholds. The MSA was based through retrained AF but original weights. The top ranked model was selected using plddt for monomer and (0.8<em>iptm and 0.2</em>ptm) for multimer.</p>
+</li>
+<li>
+<p><strong>Venclovas group (Kliment Olechnovic / Justas Dapkunas)</strong>
+Models were constructed using AlphaFold and rigid body docking (FTDock and Hex for hetero-oligomers, SAM for homo-oligomers) was performed. Model ranked using  VoroIF-jury (Interface-focused scoring using Voronoi-tesselations derived interface contacts). The models were structually analyzed for homologous proteins. AF produced high quality models - does not model large complexes - modelled in parts.</p>
+</li>
+<li>
+<p><strong>Wallner group (Bjorn Wallner)</strong>
+The diversity of models generated by AF is not very high,however models with different interfaces do exist in the predictions. Using different random seed, number of recycles (=21) or by perturbing input/MSA can increase diversity of protein models generated. Turning on dropout layers at inference is another way to do this. The default MSA from AFM was used. There were no dropouts in the structural module turned on. A large spread of model quality was found and the results were ranked using CAPRI criteria. Increased sampling seems to work for target case of nano-body protein interactions.</p>
+</li>
+</ol>
+<h3 id="overview-talk-2--protein-structure-prediction-the-past-and-the-future-minkyung-baek">Overview talk 2 : Protein structure prediction: the past and the future (Minkyung Baek)</h3>
+<p>The protein structure prediction problem has been using evolutionary information in the form of coevolution to determine contacts and hence the protein structure of the protein. Deep learning has played a massive role in moving from MSA to contact maps (subsequently distance maps) and then onto 3D structure. Early approaches used methods like ResNet which produced a one-shot prediction and the model has to undergo a series of refinement to obtain the final model. With AlphaFold, the model was generated by extracting information directly from the raw MSA iteratively in an end-to-end fashion. The question Baek asked was if it was possible for academia to replicate the efforts of AlphaFold. Her efforts resulted in RoseTTAFold, a three track (processing sequence, distance and coordinate information) neural network developed to produce protein structure prediction with end-to-end learning. The rest of the talk focussed on the following application areas using RoseTTAFold -</p>
+<ol>
+<li>
+<p><strong>Large scale <!-- raw HTML omitted -->in-silico<!-- raw HTML omitted --> PPI screening</strong>
+Protein-protein interactions among the core eukaryotic protein complexes in the yeast proteome were predicted using RoseTTAFold. These interactions were evaluated and showed performance equivalent to experimental methods. <a href="https://www.science.org/doi/10.1126/science.abm4805">Humphreys et al 2021</a></p>
+</li>
+<li>
+<p><strong>Nucleic acid structure and interaction prediction</strong>
+The single trained network RoseTTAFoldNA <a href="https://www.biorxiv.org/content/biorxiv/early/2022/09/10/2022.09.09.507333.full.pdf">Baek et al 2022</a> for protein-RNA, protein-DNA and RNA complex prediction.</p>
+</li>
+<li>
+<p><strong>De-novo functional protein design</strong>
+Two very well promising methods were described for generating protein sequences based on structure - (1) using Hallucination <a href="https://www.bakerlab.org/wp-content/uploads/2022/09/Wicky_etal_Science2022_Hallucinating_symmetric_protein_assemblies.pdf">Wicky et al.</a> (2) with diffusion called RF-Diffusion in <a href="https://www.biorxiv.org/content/10.1101/2022.12.09.519842v1.full.pdf">Watson 2022</a>.</p>
+</li>
+</ol>
+<h3 id="key-takeaways-from-day-2">Key takeaways from Day 2:</h3>
+<ul>
+<li>All top-performing methods use AlphaFold (differences in MSAs, templates, dropout, manual selection, ranking confidence)</li>
+<li>Aggressive sampling helps (maybe the most straightforward method among all the top-performing methods)</li>
+<li>Protein-language models do not work well (even for proteins with low Neff score) - need more data and more parameters aka scaling hypothesis</li>
+<li>Non-paired alignments work better for some targets</li>
+<li>More collaboration between CASPs by sharing resources (maybe through ELIXIR), zoom meetings, journal clubs, standardized benchmark, training/validation/testing datasets</li>
+</ul>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/casp">CASP</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'aditishenoy';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> © Copyright notice |  <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>feather.replace()</script>
+</body>
+</html>

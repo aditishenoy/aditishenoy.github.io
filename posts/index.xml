@@ -7,17 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Sat, 10 Dec 2022 22:44:24 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 11 Dec 2022 15:02:11 +0300</lastBuildDate>
     
 	<atom:link href="https://aditishenoy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CASP 15 Day-1 Review</title>
-      <link>https://aditishenoy.github.io/posts/casp15_day1/</link>
-      <pubDate>Sat, 10 Dec 2022 22:44:24 +0300</pubDate>
+      <title>CASP 15 Day-2</title>
+      <link>https://aditishenoy.github.io/posts/casp15/day2/</link>
+      <pubDate>Sun, 11 Dec 2022 15:02:11 +0300</pubDate>
       
-      <guid>https://aditishenoy.github.io/posts/casp15_day1/</guid>
+      <guid>https://aditishenoy.github.io/posts/casp15/day2/</guid>
+      <description>Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper) The talk broadly covered 3 categories:
+  Generative modelling (Diffusion models):</description>
+    </item>
+    
+    <item>
+      <title>CASP 15 Day-1</title>
+      <link>https://aditishenoy.github.io/posts/casp15/day1/</link>
+      <pubDate>Sat, 10 Dec 2022 11:59:17 +0300</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/casp15/day1/</guid>
       <description>Expanding criteria for review  John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers.</description>
     </item>
     
