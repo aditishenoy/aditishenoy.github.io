@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Mon, 12 Dec 2022 18:32:27 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 13 Dec 2022 21:58:30 +0300</lastBuildDate>
     
 	<atom:link href="https://aditishenoy.github.io/tags/casp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CASP 15 Day-4</title>
+      <link>https://aditishenoy.github.io/posts/casp15/day4/</link>
+      <pubDate>Tue, 13 Dec 2022 21:58:30 +0300</pubDate>
+      
+      <guid>https://aditishenoy.github.io/posts/casp15/day4/</guid>
+      <description>The assessment of predicted models is almost as important as the prediction itself. It would be hard to trust predictions if we don&amp;rsquo;t know how good they are when the native structure is not known.</description>
+    </item>
     
     <item>
       <title>CASP 15 Day-3</title>
