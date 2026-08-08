@@ -1,0 +1,203 @@
+baseURL = "https://aditishenoy.github.io/"
+
+theme = "LoveIt"
+themesDir = "themes"
+
+title = "Aditi Shenoy"
+
+defaultContentLanguage = "en"
+languageCode = "en"
+languageName = "English"
+hasCJKLanguage = false
+
+copyright = "Aditi Shenoy"
+
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+
+[pagination]
+  disableAliases = false
+  pagerSize = 10
+  path = "page"
+
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Articles"
+    url = "/posts/"
+    title = ""
+  [[menu.main]]
+    weight = 2
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+  [[menu.main]]
+    weight = 3
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+
+[params]
+  defaultTheme = "auto"
+  fingerprint = ""
+  dateFormat = "2006-01-02"
+  title = "Aditi Shenoy"
+  description = "Data scientist with a Ph.D. in Bioinformatics, applying machine learning and AI across life science, health, and pharmacovigilance data."
+  images = ["/images/avatar.jpg"]
+
+  [params.author]
+    name = "Aditi Shenoy"
+    email = "aditishenoy@outlook.in"
+    link = "https://github.com/aditishenoy"
+
+  [params.header]
+    desktopMode = "fixed"
+    mobileMode = "auto"
+    [params.header.title]
+      logo = ""
+      name = "Aditi Shenoy"
+      pre = ""
+      post = ""
+      typeit = false
+
+  [params.footer]
+    enable = true
+    custom = ""
+    hugo = true
+    copyright = true
+    author = true
+    since = 2020
+    icp = ""
+    license = ""
+
+  [params.section]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.list]
+    paginate = 20
+    dateFormat = "01-02"
+    rss = 10
+
+  [params.app]
+    title = "Aditi Shenoy"
+    noFavicon = false
+    svgFavicon = ""
+    themeColor = "#ffffff"
+    iconColor = "#5bbad5"
+    tileColor = "#da532c"
+
+  [params.search]
+    enable = false
+
+  [params.home]
+    rss = 10
+    [params.home.profile]
+      enable = true
+      gravatarEmail = ""
+      avatarURL = "/images/avatar.jpg"
+      title = "Aditi Shenoy"
+      subtitle = "Data Scientist, Healthcare & Life science"
+      typeit = true
+      social = true
+      disclaimer = ""
+    [params.home.posts]
+      enable = true
+      paginate = 6
+
+  [params.social]
+    GitHub = "aditishenoy"
+    Linkedin = "aditiashenoy"
+    Email = "aditishenoy@outlook.in"
+
+  [params.page]
+    hiddenFromHomePage = false
+    hiddenFromSearch = false
+    twemoji = false
+    lightgallery = false
+    ruby = true
+    fraction = true
+    fontawesome = true
+    linkToMarkdown = true
+    rssFullText = false
+    [params.page.toc]
+      enable = true
+      keepStatic = false
+      auto = true
+    [params.page.code]
+      copy = true
+      maxShownLines = 50
+    [params.page.math]
+      enable = false
+    [params.page.share]
+      enable = false
+    [params.page.comment]
+      enable = true
+      [params.page.comment.disqus]
+        enable = true
+        shortname = "aditishenoy"
+
+  [params.typeit]
+    speed = 100
+    cursorSpeed = 1000
+    cursorChar = "|"
+    duration = -1
+
+  [params.seo]
+    image = "/images/avatar.jpg"
+    thumbnailUrl = "/images/avatar.jpg"
+
+  [params.cdn]
+    data = ""
+
+  [params.compatibility]
+    polyfill = false
+    objectFit = false
+
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[permalinks]
+  posts = ":contentbasename"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]

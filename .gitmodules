@@ -1,0 +1,6 @@
+[submodule "hugo-src/themes/hugo-profile"]
+	path = hugo-src/themes/hugo-profile
+	url = https://github.com/gurusabarish/hugo-profile.git
+[submodule "hugo-src/themes/LoveIt"]
+	path = hugo-src/themes/LoveIt
+	url = https://github.com/dillonzq/LoveIt.git

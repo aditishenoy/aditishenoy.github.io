@@ -1,0 +1,192 @@
+baseURL: "https://aditishenoy.github.io/"
+languageCode: "en-us"
+title: "Aditi Shenoy"
+theme: hugo-profile
+
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    contentDir: "content"
+    menu:
+      main:
+        - identifier: blog
+          name: Blog
+          title: Blog posts
+          url: /blogs
+          weight: 1
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
+params:
+  title: "Aditi Shenoy"
+  description: "Data scientist with a Ph.D. in Bioinformatics, applying machine learning and AI across life science, health, and pharmacovigilance data."
+  favicon: "/fav.png"
+  useBootstrapCDN: false
+  mathjax: false
+  animate: true
+
+  font:
+    fontSize: 1rem
+    fontWeight: 400
+    lineHeight: 1.5
+    textAlign: left
+
+  navbar:
+    align: ms-auto
+    brandName: "Aditi Shenoy"
+    disableSearch: true
+    stickyNavBar:
+      enable: true
+      showOnScrollUp: true
+    enableSeparator: false
+    menus:
+      disableAbout: false
+      disableExperience: false
+      disableEducation: false
+      disableProjects: true
+      disableAchievements: false
+      disableContact: false
+
+  # Hero
+  hero:
+    enable: true
+    intro: "Hi, my name is"
+    title: "Aditi Shenoy."
+    subtitle: "Data Scientist, Healthcare & Life science"
+    content: "Data scientist with a Ph.D. in Bioinformatics and 6+ years applying and developing advanced machine learning and AI methods across life science and health data, from deep learning on protein sequence/structure to large language models on biomedical and pharmacovigilance data."
+    image: /images/hero.svg
+    bottomImage:
+      enable: true
+    button:
+      enable: false
+    socialLinks:
+      fontAwesomeIcons:
+        - icon: fab fa-github
+          url: https://github.com/aditishenoy
+        - icon: fab fa-linkedin
+          url: https://www.linkedin.com/in/aditiashenoy/
+
+  # About
+  about:
+    enable: true
+    title: "About Me"
+    content: |-
+      I apply and develop machine learning and AI methods across life science and health data — from deep learning on protein sequence and structure to large language models on biomedical and pharmacovigilance data.
+
+      My work spans data curation, model development, rigorous evaluation and validation, and integrating heterogeneous datasets, with an emphasis on reproducible, version-controlled research. I also mentor junior researchers and thesis students, and collaborate across research, product, and engineering teams to translate advanced ML/AI into deployed, real-world systems.
+    skills:
+      enable: true
+      title: "Here are a few technologies/methods I've been working with recently:"
+      # PLACEHOLDER — please confirm/edit this list
+      items:
+        - "Python"
+        - "Deep Learning"
+        - "Large Language Models (LLMs)"
+        - "Protein Structure Prediction"
+        - "Data Curation & Integration"
+        - "Model Evaluation & Validation"
+        - "Reproducible / Version-Controlled Research"
+
+  # Experience
+  experience:
+    enable: true
+    items:
+      # PLACEHOLDER dates — please confirm exact start dates
+      - company: "Uppsala Monitoring Centre"
+        companyUrl: "https://who-umc.org/"
+        jobs:
+          - name: "Data Scientist"
+            date: "2024 - present"
+            content: "Applying and developing machine learning and AI methods across life science and health data, from deep learning on protein sequence/structure to large language models on biomedical and pharmacovigilance data. Work spans data curation, model development, rigorous evaluation and validation, and data integration across heterogeneous datasets."
+      - company: "Elofsson Group, Science for Life Laboratory (SciLifeLab)"
+        companyUrl: "https://www.scilifelab.se/"
+        jobs:
+          - name: "PhD Candidate, Bioinformatics"
+            date: "20XX - Jan 2024"
+            content: "Researched deep learning techniques for protein sequence and structure, including protein binding property prediction, as part of a Ph.D. in Bioinformatics."
+
+  # Education
+  education:
+    enable: true
+    index: false
+    items:
+      # PLACEHOLDER dates — please confirm exact years
+      - title: "Ph.D. in Bioinformatics"
+        school:
+          name: "Stockholm University (SciLifeLab)"
+          url: "https://www.scilifelab.se/"
+        date: "20XX - Jan 2024"
+        content: |-
+          Research in the Elofsson Group on deep learning techniques for protein sequence and structure prediction.
+      - title: "M.Sc. in Health Informatics"
+        school:
+          name: "Karolinska Institutet"
+          url: "https://ki.se/"
+        date: "20XX - 20XX"
+      - title: "B.Tech in Biotechnology Engineering"
+        school:
+          name: "Manipal Institute of Technology"
+          url: "https://manipal.edu/mit.html"
+        date: "20XX - 20XX"
+
+  # Publications (using the achievements section)
+  achievements:
+    enable: true
+    title: "Publications"
+    # PLACEHOLDER — please provide titles/links for your publications
+    items: []
+
+  # Contact
+  contact:
+    enable: true
+    content: "My inbox is always open. If you'd like to discuss similar interests, feel free to reach out!"
+    btnName: Mail me
+    btnLink: mailto:aditishenoy@outlook.in
+
+  footer:
+    recentPosts:
+      path: "blogs"
+      count: 3
+      title: Recent Posts
+      enable: true
+      disableFeaturedImage: false
+    socialNetworks:
+      github: https://github.com/aditishenoy
+      linkedin: https://www.linkedin.com/in/aditiashenoy/
+
+  listPages:
+    disableFeaturedImage: false
+
+  singlePages:
+    socialShare: false
+    readTime:
+      enable: true
+      content: "min read"
+    scrollprogress:
+      enable: true
+    tags:
+      openInNewTab: true
+
+  terms:
+    read: "Read"
+    toc: "Table Of Contents"
+    copyright: "All rights reserved"
+    emailText: "Check out this site"
+
+  datesFormat:
+    article: "Jan 2, 2006"
+    articleList: "Jan 2, 2006"
+    articleRecent: "Jan 2, 2006"
