@@ -16,7 +16,7 @@ languages:
         - identifier: blog
           name: Blog
           title: Blog posts
-          url: /blogs
+          url: /posts
           weight: 1
 
 outputs:
@@ -158,7 +158,7 @@ params:
 
   footer:
     recentPosts:
-      path: "blogs"
+      path: "posts"
       count: 3
       title: Recent Posts
       enable: true
