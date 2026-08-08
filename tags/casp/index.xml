@@ -1,53 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CASP on Aditi Shenoy</title>
-    <link>https://aditishenoy.github.io/tags/casp/</link>
-    <description>Recent content in CASP on Aditi Shenoy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>© Copyright notice</copyright>
-    <lastBuildDate>Tue, 13 Dec 2022 21:58:30 +0300</lastBuildDate>
-    
-	<atom:link href="https://aditishenoy.github.io/tags/casp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>CASP 15 Day-4</title>
-      <link>https://aditishenoy.github.io/posts/casp15/day4/</link>
-      <pubDate>Tue, 13 Dec 2022 21:58:30 +0300</pubDate>
-      
-      <guid>https://aditishenoy.github.io/posts/casp15/day4/</guid>
-      <description>The assessment of predicted models is almost as important as the prediction itself. It would be hard to trust predictions if we don&amp;rsquo;t know how good they are when the native structure is not known.</description>
-    </item>
-    
-    <item>
-      <title>CASP 15 Day-3</title>
-      <link>https://aditishenoy.github.io/posts/casp15/day3/</link>
-      <pubDate>Mon, 12 Dec 2022 18:32:27 +0300</pubDate>
-      
-      <guid>https://aditishenoy.github.io/posts/casp15/day3/</guid>
-      <description>RNA structure  The standard metric used for assessing the RNA structure (in terms of watson pairs, non-watson pairs and coaxial stacking) was RMSD.</description>
-    </item>
-    
-    <item>
-      <title>CASP 15 Day-2</title>
-      <link>https://aditishenoy.github.io/posts/casp15/day2/</link>
-      <pubDate>Sun, 11 Dec 2022 15:02:11 +0300</pubDate>
-      
-      <guid>https://aditishenoy.github.io/posts/casp15/day2/</guid>
-      <description>Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper) The talk broadly covered 3 categories:
-  Generative modelling (Diffusion models):</description>
-    </item>
-    
-    <item>
-      <title>CASP 15 Day-1</title>
-      <link>https://aditishenoy.github.io/posts/casp15/day1/</link>
-      <pubDate>Sat, 10 Dec 2022 11:59:17 +0300</pubDate>
-      
-      <guid>https://aditishenoy.github.io/posts/casp15/day1/</guid>
-      <description>Expanding criteria for review  John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers.</description>
-    </item>
-    
-  </channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>CASP - Tag - Aditi Shenoy</title><link>https://aditishenoy.github.io/tags/casp/</link><description>CASP - Tag - Aditi Shenoy</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>aditishenoy@outlook.in (Aditi Shenoy)</managingEditor><webMaster>aditishenoy@outlook.in (Aditi Shenoy)</webMaster><copyright>Aditi Shenoy</copyright><lastBuildDate>Tue, 13 Dec 2022 21:58:30 +0300</lastBuildDate><atom:link href="https://aditishenoy.github.io/tags/casp/" rel="self" type="application/rss+xml"/><item><title>CASP 15 Day-4</title><link>https://aditishenoy.github.io/casp15-day4/</link><pubDate>Tue, 13 Dec 2022 21:58:30 +0300</pubDate><author>aditishenoy@outlook.in (Aditi Shenoy)</author><guid>https://aditishenoy.github.io/casp15-day4/</guid><description>&lt;p>The assessment of predicted models is almost as important as the prediction itself. It would be hard to trust predictions if we don’t know how good they are when the native structure is not known. This year, new criteria needed to be used to assess quaternary structures as compared to tertiary structures as in previous years. This is where the definition of interfaces needs to clarified and subsequently poses a challenge on how best to evaluate interfaces.&lt;/p></description></item><item><title>CASP 15 Day-3</title><link>https://aditishenoy.github.io/casp15-day3/</link><pubDate>Mon, 12 Dec 2022 18:32:27 +0300</pubDate><author>aditishenoy@outlook.in (Aditi Shenoy)</author><guid>https://aditishenoy.github.io/casp15-day3/</guid><description><![CDATA[<ol>
+<li><strong>RNA structure</strong></li>
+</ol>
+<p>The standard metric used for assessing the RNA structure (in terms of watson pairs, non-watson pairs and coaxial stacking) was RMSD. The categories (easy, medium, hard) were made based on seqeunce homology. This CASP15, for the first time protein measures, such as GDT_S, TM scores and lDDT, (in addition to stereochemical clash scores) were piloted for RNA using a linear combination. The ranking by these individual scores correlated well with each other (except for the ranking using clash scores). The way multi-state RNA targets were assessed by comparing all predicted models against the experimenal structure and ranked the best. Deep learning methods have been developed to predict the 3D RNA structure but not so surprsingly, these methods did not perform well. This could be because of small size of training data (~1600 sequences), not using templates optimally or low diversity of sequences within MSA, to name a few. Some of the targets in CASP15 were designed RNA nanostructure. These have no MSA and surprisingly did well using top performing methods. The best methods were by made by seasoned RNA experts who used homology-based approaches and they did not use deep learning. It was found that canonical and wobble pairs can be predicted accurately (MCC &gt; 0.9). Secondary structure can be predicted well sometimes. The open challenges that still remains are prediction of non-canonical pairs (MCC ~ 0.58), prediction of stacking interactions, prediction of bending helices topology of 4-way junctions and co-axial stacking of helices.</p>]]></description></item><item><title>CASP 15 Day-2</title><link>https://aditishenoy.github.io/casp15-day2/</link><pubDate>Sun, 11 Dec 2022 15:02:11 +0300</pubDate><author>aditishenoy@outlook.in (Aditi Shenoy)</author><guid>https://aditishenoy.github.io/casp15-day2/</guid><description><![CDATA[<h3 id="overview-talk-1--mapping-machine-learning-to-protein-structure-problems-john-jumper">Overview talk 1 : Mapping machine learning to protein structure problems (John Jumper)</h3>
+<p>The talk broadly covered 3 categories:</p>
+<ol>
+<li>
+<p><strong>Generative modelling (Diffusion models):</strong><br>
+Evidence for multi-state modelling using sub-sampling or clustering MSAs has been shown by <a href="https://elifesciences.org/articles/75751#s3" target="_blank" rel="noopener noreffer ">Diego del Alamo 2022</a>. With recent success of generative modelling, there is, scope to use diffusion models to predict multiple states in proteins. This is done by adding noise to the input (protein coordinates) which passes through the network and produces a prediction. This incldues forward stochastic differential equations (SDE) (data to noise) and reverse SDE (noise to data).Examples where these have been applied to proteins are (<a href="https://arxiv.org/abs/2205.15019" target="_blank" rel="noopener noreffer ">Anand and Achim 2022</a>, <a href="https://www.biorxiv.org/content/10.1101/2022.12.09.519842v1" target="_blank" rel="noopener noreffer ">Watson 2022</a> and <a href="https://www.biorxiv.org/content/10.1101/2022.12.01.518682v1" target="_blank" rel="noopener noreffer ">Ingraham 2022</a>). The challenge to evaluate multi-state proteins remains.</p>]]></description></item><item><title>CASP 15 Day-1</title><link>https://aditishenoy.github.io/casp15-day1/</link><pubDate>Sat, 10 Dec 2022 11:59:17 +0300</pubDate><author>aditishenoy@outlook.in (Aditi Shenoy)</author><guid>https://aditishenoy.github.io/casp15-day1/</guid><description><![CDATA[<ol>
+<li><strong>Expanding criteria for review</strong></li>
+</ol>
+<p>John Moult proposes a way to add evaluation criteria (e.g. reproducibility, robustness, training bias, suitability for benchmarking) for method-based and application-based papers. To keep up with the fast-pased research in the field, criteria like these could be useful to suggest what has been done (e.g. using protein language models for proteins with shallow alignments or graph transformers for protein-ligand complex prediction and where we fall short</p>]]></description></item></channel></rss>

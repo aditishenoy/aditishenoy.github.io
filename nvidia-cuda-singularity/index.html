@@ -1,0 +1,132 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>Installing Nvidia Driver and Cuda in a Singularity Container - Aditi Shenoy</title><meta name=Description content="Data scientist with a Ph.D. in Bioinformatics, applying machine learning and AI across life science, health, and pharmacovigilance data."><meta property="og:url" content="https://aditishenoy.github.io/nvidia-cuda-singularity/"><meta property="og:site_name" content="Aditi Shenoy"><meta property="og:title" content="Installing Nvidia Driver and Cuda in a Singularity Container"><meta property="og:description" content="Installing Nvidia Drivers and Cuda on a Linux machine can be a tricky affair. Though it is possible to install both the nvidia-driver and the nvidia-cuda-toolkit using a package manager, it could result in incompatibile versions and could potentially break the graphics or operating system. In this post I have described how I have kept the driver and toolkit separate using singularity containers to check for conflicting versions and prevent potential mishaps."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-05-21T16:08:13+02:00"><meta property="article:modified_time" content="2020-05-21T16:08:13+02:00"><meta property="article:tag" content="Tech Tricks"><meta property="og:image" content="https://aditishenoy.github.io/images/avatar.jpg"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://aditishenoy.github.io/images/avatar.jpg"><meta name=twitter:title content="Installing Nvidia Driver and Cuda in a Singularity Container"><meta name=twitter:description content="Installing Nvidia Drivers and Cuda on a Linux machine can be a tricky affair. Though it is possible to install both the nvidia-driver and the nvidia-cuda-toolkit using a package manager, it could result in incompatibile versions and could potentially break the graphics or operating system. In this post I have described how I have kept the driver and toolkit separate using singularity containers to check for conflicting versions and prevent potential mishaps."><meta name=application-name content="Aditi Shenoy"><meta name=apple-mobile-web-app-title content="Aditi Shenoy"><meta name=referrer content="no-referrer"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://aditishenoy.github.io/nvidia-cuda-singularity/><link rel=prev href=https://aditishenoy.github.io/wifi-no-hardware-installed/><link rel=next href=https://aditishenoy.github.io/casp15-day1/><link rel=stylesheet href=/css/style.min.css><link rel=preload href=/lib/fontawesome-free/css/all.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/fontawesome-free/css/all.min.css></noscript><link rel=preload href=/lib/animate/animate.min.css as=style onload='this.onload=null,this.rel="stylesheet"'><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Installing Nvidia Driver and Cuda in a Singularity Container","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/aditishenoy.github.io\/nvidia-cuda-singularity\/"},"image":[{"@type":"ImageObject","url":"https:\/\/aditishenoy.github.io\/images\/avatar.jpg","width":800,"height":800}],"genre":"posts","keywords":"Tech Tricks","wordcount":1150,"url":"https:\/\/aditishenoy.github.io\/nvidia-cuda-singularity\/","datePublished":"2020-05-21T16:08:13+02:00","dateModified":"2020-05-21T16:08:13+02:00","license":"Aditi Shenoy","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"Aditi Shenoy"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>const query=window.matchMedia("(prefers-color-scheme: dark)");function applyTheme(){let e=window.localStorage?.getItem("theme")||"auto",t=e==="dark"||e==="auto"&&query.matches;document.body.setAttribute("theme",t?"dark":"light"),document.body.setAttribute("cfg-theme",e)}applyTheme(),query.addEventListener("change",applyTheme)</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Aditi Shenoy">Aditi Shenoy</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>Articles </a><a class=menu-item href=/tags/>Tags </a><a class=menu-item href=/about/>About </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Aditi Shenoy">Aditi Shenoy</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>Articles</a><a class=menu-item href=/tags/ title>Tags</a><a class=menu-item href=/about/ title>About</a><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust" aria-hidden=true></i></a></div></div></header><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Installing Nvidia Driver and Cuda in a Singularity Container</h1><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://github.com/aditishenoy title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle" aria-hidden=true></i>Aditi Shenoy</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt" aria-hidden=true></i>&nbsp;<time datetime=2020-05-21>2020-05-21</time>&nbsp;<i class="fas fa-pencil-alt" aria-hidden=true></i>&nbsp;1150 words&nbsp;
+<i class="far fa-clock" aria-hidden=true></i>&nbsp;6 minutes&nbsp;</div></div><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right" aria-hidden=true></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div></div><div class=content id=content><p>Installing Nvidia Drivers and Cuda on a Linux machine can be a tricky affair. Though it is possible to install both the nvidia-driver and the nvidia-cuda-toolkit using a package manager, it could result in incompatibile versions and could potentially break the graphics or operating system. In this post I have described how I have kept the driver and toolkit separate using singularity containers to check for conflicting versions and prevent potential mishaps.</p><p>Brief notes on terminology:</p><ul><li><a href=https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#introduction target=_blank rel="noopener noreffer"><em>CUDA</em></a> - parallel computing platform and programming model to communicate with NVIDIA GPUs</li><li><a href=https://www.geforce.com/drivers target=_blank rel="noopener noreffer"><em>Nvidia Driver</em></a> - software that allows the NVIDIA GPU to communicate with the operating system</li><li><a href=https://sylabs.io/guides/3.0/user-guide/build_a_container.html target=_blank rel="noopener noreffer"><em>Singularity Container</em></a> - a file/image running an operating system on top of the host system’s operating system. The software environment of the container is determined by the contents of the singularity image and what is run within the container will not affect the host operating system.</li></ul><p>These were my system specifications:</p><pre><code>ashenoy@hostname~$ uname -m &amp;&amp; cat /etc/*release
+x86_64
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=20.04
+DISTRIB_CODENAME=focal
+DISTRIB_DESCRIPTION=&quot;Ubuntu 20.04 LTS&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION=&quot;20.04 LTS (Focal Fossa)&quot;
+</code></pre><p>I first started with searching for and installing Nvidia-driver outside container since root priviledges are needed for this.</p><pre><code>#Search for versions of drivers applicable for current operating system
+ashenoy@hostname:~$ apt search nvidia-driver
+Sorting... Done
+Full Text Search... Done
+nvidia-driver-390/focal,focal 390.132-0ubuntu2 amd64
+  NVIDIA driver metapackage
+
+nvidia-driver-435/focal,focal 435.21-0ubuntu7 amd64
+  NVIDIA driver metapackage
+
+nvidia-driver-440/focal 440.82+really.440.64-0ubuntu6 amd64
+  NVIDIA driver metapackage
+  
+# Or try the following command
+ashenoy@hostname:~$ ubuntu-drivers list
+nvidia-driver-390, (kernel modules provided by linux-modules-nvidia-390-generic-hwe-20.04)
+nvidia-driver-435, (kernel modules provided by linux-modules-nvidia-435-generic-hwe-20.04)
+nvidia-driver-440, (kernel modules provided by linux-modules-nvidia-440-generic-hwe-20.04)
+</code></pre><p>Since I already had a driver installed and I needed to change the version, I did the following:</p><pre><code>#Remove old version of driver
+ashenoy@hostname:~$ sudo apt remove &lt;NVIDIA-DRIVER-VERSION-TO-REMOVE&gt;
+#Install nvidia-modprobe and graphics-drivers/ppa
+ashenoy@hostname:~$ sudo apt install nvidia-modprobe
+ashenoy@hostname:~$ sudo add-apt-repository ppa:graphics-drivers/ppa
+# Update and install the driver version you need
+ashenoy@hostname:~$ sudo apt-get update &amp;&amp; sudo apt-get upgrade
+ashenoy@hostname:~$ sudo apt-get install &lt;NVIDIA-DRIVER-VERSION-NEEDED&gt;
+#To check if driver version has been updated
+ashenoy@hostname:~$ nvidia-smi
+Failed to initialize NVML: Driver/library version mismatch
+ashenoy@hostname:~$ sudo reboot
+</code></pre><p>After the reboot, the error “Failed to initialize NVML: Driver/library version mismatch” did not persist and the output of nvidia-smi was as below.</p><pre><code>ashenoy@hostname:~$ nvidia-smi
+Thu May 21 15:43:45 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 435.21       Driver Version: 435.21       CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GT 1030     Off  | 00000000:04:00.0 Off |                  N/A |
+| 35%   32C    P8    N/A /  30W |      1MiB /  2001MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX 1070    Off  | 00000000:09:00.0  On |                  N/A |
+| 28%   32C    P8     7W / 151W |     68MiB /  8097MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+</code></pre><p>Following this I created singularity container as described <a href=https://sylabs.io/guides/3.5/user-guide/gpu.html target=_blank rel="noopener noreffer">here</a></p><pre><code>ashenoy@hostname~$ singularity pull docker://tensorflow/tensorflow:latest-gpu
+ashenoy@hostname~$ singularity run --nv tensorflow_latest-gpu.sif
+Singularity&gt; cat /etc/issue
+Ubuntu 18.04.3 LTS \n \l
+#(Note how the operating system inside this container was 18.04 while the host operating system shown at the beginning of this article was 20.4)
+</code></pre><p>and followed the instructions for installing nvidia-cuda-toolkit from <a href=https://developer.nvidia.com/cuda-downloads target=_blank rel="noopener noreffer">here</a>. I selected Linux -> x86_64 -> Ubuntu -> deb(local)</p><pre><code>Singularity&gt; wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+Singularity&gt; mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+Singularity&gt; wget http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
+Singularity&gt; dpkg -i cuda-repo-ubuntu1804-10-2-local-10.2.89-440.33.01_1.0-1_amd64.deb
+Singularity&gt; apt-key add /var/cuda-repo-10-2-local-10.2.89-440.33.01/7fa2af80.pub
+Singularity&gt; apt-get update
+Singularity&gt;apt-get -y install cuda
+
+#Check the nvidia-cuda-toolkit version 
+Singularity&gt; nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Sun_Jul_28_19:07:16_PDT_2019
+Cuda compilation tools, release 10.1, V10.1.243
+Singularity&gt; exit
+ashenoy@hostname~$ sudo reboot
+</code></pre><p>At this point, I was getting an output for nvidia-smi and nvcc -V (with compatible versions) inside the singularity container. Using the following commands, tensorflow was able to find and identify the number of GPUs available in the system.</p><pre><code>Singularity&gt; python
+Python 3.6.9 (default, Apr 18 2020, 01:56:04)
+[GCC 8.4.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import tensorflow as tf
+&gt;&gt;&gt; print(&quot;Num GPUs Available: &quot;,len(tf.config.experimental.list_physical_devices('GPU')))
+2020-05-21 15:44:35.622505: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-05-21 15:44:35.658062: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:35.658542: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:09:00.0 name: GeForce GTX 1070 computeCapability: 6.1
+coreClock: 1.7715GHz coreCount: 15 deviceMemorySize: 7.91GiB deviceMemoryBandwidth: 238.66GiB/s
+2020-05-21 15:44:35.658580: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:35.659125: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties:
+pciBusID: 0000:04:00.0 name: GeForce GT 1030 computeCapability: 6.1
+coreClock: 1.5185GHz coreCount: 3 deviceMemorySize: 1.95GiB deviceMemoryBandwidth: 44.76GiB/s
+2020-05-21 15:44:35.701686: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-05-21 15:44:35.816640: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-05-21 15:44:35.872584: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-05-21 15:44:35.947596: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-05-21 15:44:36.150146: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-05-21 15:44:36.200153: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-05-21 15:44:36.447265: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-05-21 15:44:36.447451: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:36.448344: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:36.448992: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:36.449803: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-05-21 15:44:36.450426: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1688] Ignoring visible gpu device (device: 1, name: GeForce GT 1030, pci bus id: 0000:04:00.0, compute capability: 6.1) with core count: 3. The minimum required count is 8. You can adjust this requirement with the env var TF_MIN_GPU_MULTIPROCESSOR_COUNT.
+2020-05-21 15:44:36.450437: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+Num GPUs Available:  1
+&gt;&gt;&gt; exit()
+
+## But pytorch wasn't finding the gpu
+Singularity&gt; python
+Python 3.6.9 (default, Apr 18 2020, 01:56:04)
+[GCC 8.4.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+&gt;&gt;&gt; print (device)
+cpu
+&gt;&gt;&gt; print (torch.cuda.is_available())
+False
+&gt;&gt;&gt; print(torch.version.cuda)
+10.2
+</code></pre><p>So I removed pytorch 1.5.0 and installed an older version 1.0.0 instead.</p><pre><code>Singularity&gt; pip3 install torch==1.0.0 torchvision==0.2.1
+
+Singularity&gt; python
+Python 3.6.9 (default, Apr 18 2020, 01:56:04)
+[GCC 8.4.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; import torch
+&gt;&gt;&gt; print (torch.cuda.is_available())
+True
+</code></pre><p>And everything was right with the world again…</p><p>Among the countless tabs I referred to, these were especially useful to me.</p><ul><li><p><a href=https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#introduction target=_blank rel="noopener noreffer">Cuda Toolkit Documentation</a></p></li><li><p><a href=http://www.markbuckler.com/post/install-cuda/ target=_blank rel="noopener noreffer">Blog post by Mark Buckler</a></p></li><li><p><a href=https://sylabs.io/guides/3.5/user-guide/gpu.html target=_blank rel="noopener noreffer">Singularity documentation</a></p></li><li><p><a href=https://groups.google.com/a/lbl.gov/forum/#!msg/singularity/CezfXNjLGe0/OayDEcSUBQAJ target=_blank rel="noopener noreffer">Singularity Google Group</a></p></li><li><p>and my best friend who gave me both good and bad solutions to my errors- Stack Overflow</p></li></ul></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>Updated on 2020-05-21</span></div></div><div class=post-info-line><div class=post-info-md></div><div class=post-info-share><span></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags" aria-hidden=true></i>&nbsp;<a href=/tags/tech-tricks/>Tech Tricks</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>Back</a></span>&nbsp;|&nbsp;<span><a href=/>Home</a></span></section></div><div class=post-nav><a href=/wifi-no-hardware-installed/ class=prev rel=prev title="“Wi-Fi: No Hardware Installed“ - What to do?"><i class="fas fa-angle-left" aria-hidden=true></i>“Wi-Fi: No Hardware Installed“ - What to do?</a>
+<a href=/casp15-day1/ class=next rel=next title="CASP 15 Day-1">CASP 15 Day-1<i class="fas fa-angle-right" aria-hidden=true></i></a></div></div><div id=comments><div id=disqus_thread class=comment></div><noscript>Please enable JavaScript to view the comments powered by <a href=https://disqus.com/?ref_noscript>Disqus</a>.</noscript></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line>Powered by <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.164.0">Hugo</a> | Theme - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 1.0.0"><i class="far fa-kiss-wink-heart" aria-hidden=true></i> LoveIt</a></div><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright" aria-hidden=true></i><span itemprop=copyrightYear>2020 - 2026</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/aditishenoy target=_blank>Aditi Shenoy</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-arrow-up" aria-hidden=true></i></a></div><div id=fixed-buttons-hidden><a href=# id=view-comments class=fixed-button title="View Comments"><i class="fas fa-comment" aria-hidden=true></i></a></div><script src=https://aditishenoy.disqus.com/embed.js defer></script><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script>window.config={comment:{}}</script><script src=/js/theme.js></script></body></html>
